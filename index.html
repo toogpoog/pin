@@ -6,8 +6,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite App</title>
   </head>
-  <body>
-    <div class=""><h1>hello world</h1></div>
+
+  <body class="bg-blue-50">
+    <div class="p-20 flex items-stretch gap-10">
+      <div
+        class="p-0 h-full m-auto w-full bg-white border-slate-400 border-8 rounded-4xl flex flex-col justify-between"
+      >
+        <div class="flex justify-between">
+          <div class="p-5">
+            <svg
+              class="h-20 w-20 text-slate-400"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
+          </div>
+          <div class="p-5">
+            <svg
+              class="h-20 w-20 text-slate-400"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              stroke-width="2.5"
+              stroke="currentColor"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" />
+              <path
+                d="M12 17.75l-6.172 3.245 1.179-6.873-4.993-4.867 6.9-1.002L12 2l3.086 6.253 6.9 1.002-4.993 4.867 1.179 6.873z"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="p-8 h-full m-auto w-full bg-white border-slate-400 border-8 rounded-4xl"
+      >
+        <div class="flex flex-row items-center gap-1 my-5">
+          <input
+            type="search"
+            placeholder="Search"
+            class="w-full border-7 border-slate-400 rounded-4xl p-3 text-3xl text-slate-400 focus:outline-none decoration-4"
+          />
+
+          <div>
+            <svg
+              class="h-20 w-20 text-slate-400"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              stroke-width="2.5"
+              stroke="currentColor"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" />
+              <path
+                d="M5.5 5h13a1 1 0 0 1 0.5 1.5L14 12L14 19L10 16L10 12L5 6.5a1 1 0 0 1 0.5 -1.5"
+              />
+            </svg>
+          </div>
+        </div>
+
+        <div>
+          <div
+            class="flex flex-row gap-8 text-xl text-slate-600 flex-wrap items-start h-auto min-h-px[20000] overflow-y-hidden"
+            data-item-list
+          ></div>
+        </div>
+      </div>
+    </div>
+    <div class="">
+      <div
+        aria-hidden="true"
+        class="absolute inset-y-0 right-1/2 -z-10 -mr-96 w-[200%] origin-top-right skew-x-[-30deg] bg-white shadow-xl ring-1 shadow-blue-600/10 ring-blue-50 sm:-mr-80 lg:-mr-96"
+      ></div>
+    </div>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
