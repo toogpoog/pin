@@ -100,10 +100,49 @@ const renderItem = (item) => {
   return itemDiv;
 };
 
-document.addEventListener("DOMContentLoaded", () => {
+const setUpItemsList = () => {
   const itemList = document.querySelector("[data-item-list]");
   if (!itemList) return;
 
-  const x = globalItems.map(renderItem);
-  itemList.replaceChildren(...x);
+  const searchInput = document.querySelector("[data-search-input]");
+  if (!searchInput) return;
+
+  const render = (items) => {
+    const x = items.map(renderItem);
+    itemList.replaceChildren(...x);
+  };
+
+  searchInput.addEventListener("input", (e) => {
+    const q = e.target.value.toLowerCase();
+    const filteredItems = globalItems.filter((item) =>
+      item.name.toLowerCase().includes(q)
+    );
+    render(filteredItems);
+  });
+
+  render(globalItems);
+};
+
+const setUpForm = () => {
+  const form = document.querySelector("[data-item-form]");
+  if (!form) return;
+  const input = form.querySelector("[data-item-name-field]");
+  if (!input) return;
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const name = input.value;
+    if (!name) return;
+    const newItem = {
+      id: globalItems.length + 1,
+      name,
+    };
+    globalItems.push(newItem);
+    input.value = "";
+  });
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+  setUpItemsList();
+  setUpForm();
 });
