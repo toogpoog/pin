@@ -20,7 +20,7 @@ const renderItem = (item) => {
   img.width = w;
   img.height = h;
 
-  itemDiv.className = `flex flex-col justify-center items-center gap-2 w-[100px] border-5 border-slate-400 rounded-lg bg-slate-400`;
+  itemDiv.className = `flex flex-col justify-center relative items-center gap-2 w-[100px] border-5 border-slate-400 rounded-lg bg-slate-400`;
   img.className = "rounded-lg border-2 border-slate-600";
   img.src = item.image;
   img.alt = "icon";
@@ -31,12 +31,19 @@ const renderItem = (item) => {
   h2.textContent = item.name;
   itemDiv.appendChild(h2);
 
+  const closeButton = document.createElement("button");
+  closeButton.textContent = "X";
+  closeButton.className = "absolute top-0 right-0 m-1 bg-rose-400 text-white rounded-full w-6 h-6 flex items-center justify-center hover:cursor-pointer";
 
-  // itemDiv.addEventListener("click", () => {
-  //   const items = getItems().filter((i) => i.id !== item.id);
-  //   saveItems(items);
-  //   itemDiv.remove();
-  // });
+  closeButton.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const items = getItems().filter((i) => i.id !== item.id);
+    saveItems(items);
+    itemDiv.remove();
+  });
+
+  itemDiv.appendChild(closeButton);
+
 
   itemDiv.addEventListener("click", () => {
     // navigate to item detail page
