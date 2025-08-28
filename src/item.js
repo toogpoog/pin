@@ -16,6 +16,9 @@ const render = () => {
 
   const itemImage = document.querySelector("[data-item-image]");
   if (itemImage) itemImage.src = item.image;
+
+  const itemDescription = document.querySelector("[data-item-description]");
+  if (itemDescription) itemDescription.textContent = item.description;
 };
 
 document.addEventListener("DOMContentLoaded", () => {

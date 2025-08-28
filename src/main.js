@@ -24,11 +24,13 @@ const renderItem = (item) => {
   img.className = "rounded-lg border-2 border-slate-600";
   img.src = item.image;
   img.alt = "icon";
+  img.title = item.description;
   itemDiv.appendChild(img);
   const h2 = document.createElement("h2");
   h2.className = "text-center text-white";
   h2.textContent = item.name;
   itemDiv.appendChild(h2);
+
 
   // itemDiv.addEventListener("click", () => {
   //   const items = getItems().filter((i) => i.id !== item.id);
@@ -73,6 +75,8 @@ const setUpForm = () => {
   if (!form) return;
   const input = form.querySelector("[data-item-name-field]");
   if (!input) return;
+  const descriptionInput = form.querySelector("[data-item-description-field]");
+  if (!descriptionInput) return;
   const imageInput = form.querySelector("[data-item-image-field]");
   if (!imageInput) return;
 
@@ -80,6 +84,7 @@ const setUpForm = () => {
     e.preventDefault();
     const name = input.value;
     const image = imageInput.value;
+    const description = descriptionInput.value;
 
     if (!name) return;
 
@@ -89,6 +94,7 @@ const setUpForm = () => {
       id: items.length + 1,
       name,
       image,
+      description,
     };
 
     items.push(newItem);
