@@ -30,10 +30,15 @@ const renderItem = (item) => {
   h2.textContent = item.name;
   itemDiv.appendChild(h2);
 
+  // itemDiv.addEventListener("click", () => {
+  //   const items = getItems().filter((i) => i.id !== item.id);
+  //   saveItems(items);
+  //   itemDiv.remove();
+  // });
+
   itemDiv.addEventListener("click", () => {
-    const items = getItems().filter((i) => i.id !== item.id);
-    saveItems(items);
-    itemDiv.remove();
+    // navigate to item detail page
+    window.location.href = `/item.html?id=${item.id}`;
   });
 
   return itemDiv;
@@ -75,6 +80,7 @@ const setUpForm = () => {
     e.preventDefault();
     const name = input.value;
     const image = imageInput.value;
+
     if (!name) return;
 
     const items = getItems();
